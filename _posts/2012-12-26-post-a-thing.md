@@ -7,26 +7,50 @@ type: 'POST'
 layout: nil
 ---
 
-This method allows users to create a new thing.
+<div id="jxgbox" class="jxgbox" style="width:500px; height:500px">
+<script type="text/javascript">
+    function(){
+const board = JXG.JSXGraph.initBoard('jxgbox', {
+    							boundingbox: [-10, 10, 10, -10],
+                  axis: false
+              });
+ 
 
-### Request
+ 
+ 
+ var C = board.create('point', [0,4], { fixed: true, name: 'C', fontsize: 15 });
+ 
+  var M = board.create('point', [0,-1], { fixed: true, name: 'M', fontsize: 15 });
+  
+var name = board.create('text', [-2.5, 6.5, '2016 I HT A1'], {fixed: true, fontsize: 20});
+  
+  /*var A = board.create('point', [  function() { return -5 * Math.tan(phi.Value() * 0.5 * Math.PI/180); },
+  -1],
+  {name: A, fixed: true, fontsize: 15});*/
+  
+var fix = board.create('functiongraph', [x => -1], {visible: false})
+  
+    var B = board.create('glider', [ 2.33,
+  -1, fix], {name: 'B', fixed: false, color: 'orange', size: 4});
+  
+  var A = board.create('point', [  function() { return -1 * B.X(); },
+  -1],
+  {name: 'A', fixed: true, fontsize: 15});  
 
-* The headers must include a **valid authentication token**.
-* **The body can't be empty** and must include at least the name attribute, a `string` that will be used as the name of the thing.
+  var CM = board.create('segment', [C, M], {name: '5'});
+  var AM = board.create('segment', [A, M]);
+  var BM = board.create('segment', [B, M]);
+  var CA = board.create('segment', [C, A]);
+  var CB = board.create('segment', [C, B]);
+  
+var angle = board.create('angle', [A, C, B], {name: '&phi;', radius: 1})
 
-```Authentication: bearer TOKEN```
-```{
-    name: 'My new thing'
-}```
+var height = board.create('text', [0.2, 1.3, '5',], {fixed: true, fontsize: 15});
 
-### Response
 
-**If succeeds**, returns the created thing.
+var temp = function() { return B.X() * 5;};
 
-```Status: 201 Created```
-```{
-    id: new_thing,
-    name: 'My new thing'
-}```
-
-For errors responses, see the [response status codes documentation](#response-status-codes).
+var area = board.create('text',[-2,-2,function(){return "A(&phi;) = "+JXG.toFixed(temp(), 2) + " cm^2";}], {fixed: true, fontsize: 15});
+}()
+  </script>
+  </div>
