@@ -1,6 +1,6 @@
 <h1>{{ site.title }}</h1>
 <ul id='links'>
-  {% for posts in site.categories.Klausur2015IHaupttermin %}
+  {% for category in categories %}
   <li><h2>{{ category | first }}</h2>
     <ul>
     {% for posts in category %}
