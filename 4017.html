@@ -1,0 +1,20 @@
+---
+layout: default
+---
+
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/jsxgraph/0.99.7/jsxgraph.css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsxgraph/0.99.7/jsxgraphcore.js"></script>
+<nav id='sidebar'>
+	{% include nav4017.html %}
+</nav>
+
+<section id='content'>
+{% for post in site.categories.Klausur2017IIHaupttermin %}
+  <article class='{{ post.type }}'>
+    <a name='{{ post.url }}' href='#{{ post.url }}'><h2>{% if post.type %}<code><b>{{ post.type }}</b> {{ post.path }}</code> {% endif %}{{ post.title }}</h2></a>
+    <section class='body'>
+      {{ post.content }}
+    </section>
+  </article>
+{% endfor %}
+</section>
