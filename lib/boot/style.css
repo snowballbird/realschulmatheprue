@@ -74,6 +74,14 @@ code {
   visibility: hidden;
 }
 
+#sidebar ul#links form#links{
+  visibility: hidden;
+}
+
+#sidebar ul#links form{
+  visibility: hidden;
+}
+
 #sidebar ul#links {
   padding: 20px;
 }
