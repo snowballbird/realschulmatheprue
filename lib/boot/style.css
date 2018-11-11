@@ -70,6 +70,10 @@ code {
   padding: 0;
 }
 
+#sidebar ul form{
+  visibility: hidden;
+}
+
 #sidebar ul#links {
   padding: 20px;
 }
