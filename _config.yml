@@ -5,3 +5,5 @@ pygments: false
 highlighter: 'rouge'
 safe: false
 title: 'Abschlussprüfung'
+
+jsxurl: 'lib/jsxgraph'
